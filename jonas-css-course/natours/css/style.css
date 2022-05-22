@@ -106,6 +106,7 @@ body {
   /* we should always add this, if we add height, margin or padding */
   display: inline-block;
   border-radius: 50px;
+  position: relative;
 
   transition: transform 0.2s ease-out;
 }
@@ -125,6 +126,40 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+.btn::after {
+  /* these two are necessary */
+  content: '';
+  /* because btn is also inline block */
+  display: inline-block;
+  /* pseudo-element is treated like a child of element */
+  height: 100%;
+  width: 100%;
+  /* this is 100% of the width and height of parent element (btn itself) */
+  border-radius: 50px;
+  transition: all 0.4s ease-out;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* when button is hovered, add styles to after pseudo element */
+.btn-white:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveFromBottom 0.5s ease-out 0.75s;
+  /* this will apply the 0% animation styles before the animation starts */
+  animation-fill-mode: backwards;
 }
 
 /* for browser performance it is better to animate only two properties, one is "opacity", and other one is "transform" */
@@ -157,5 +192,17 @@ body {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
