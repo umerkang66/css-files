@@ -1,8 +1,161 @@
 /*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
+  COLORS:
+    Light green: #7ed56f
+    Medium green: #55c57a
+    Dark green: #28b485
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* we are going to use font properties in inheritance, so this is in the body */
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+
+  /* padding is not inherited */
+  padding: 20px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgb(40, 180, 133, 0.8)
+    ),
+    url('../img/hero.jpg');
+
+  /* always tries to fit its container div */
+  background-size: cover;
+  background-position: top;
+  /* from here logo-box will count (position absolute will count) */
+  position: relative;
+
+  /* provide the 4 coordinates, that will automatically joined by clip-path */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* translate the half of box on y-axis and x-axis 50% both */
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  /* this determines if the back-part of the element (when being transformed) is visible or hidden of the user */
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+}
+
+/* by default h1 has higher font-weight */
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveFromLeft;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+
+  /* animation-delay: 3s; */ /* this will delay the animation */
+  /* animation-iteration-count: 3; */ /* animation will happen 3 times */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation: moveInRight 0.7s ease-out;
+}
+
+/* special state of selector, when it is an anchor element, it function as link */
+/* "visited" state when user has already clicked the button */
+/* we want to the link, and visited state of button looks the same, in reality colors are bit different */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  /* we should always add this, if we add height, margin or padding */
+  display: inline-block;
+  border-radius: 50px;
+
+  transition: transform 0.2s ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* x-axis, y-axis, blur, color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  /* always related to the initial link state */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* for browser performance it is better to animate only two properties, one is "opacity", and other one is "transform" */
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
