@@ -1,0 +1,9 @@
+@mixin clearfix {
+  // create an after element that will add the height that has been removed by float layout
+  &::after {
+    content: '';
+    display: table;
+    // clear both left and right floats
+    clear: both;
+  }
+}

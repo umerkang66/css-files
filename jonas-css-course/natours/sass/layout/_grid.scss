@@ -1,0 +1,59 @@
+.row {
+  max-width: $grid-width; // 1140px
+  background-color: #eee;
+  // left and right margin will be same, so it goes to center
+  margin: 0 auto;
+
+  // select everything expects the last child
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  // select all the elements whose class attributes "^" starts with "col-", "*" means that contains "col-1", "$" means it ends with provided string
+  [class^='col-'] {
+    float: left;
+    background-color: orangered;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    // we can mix units, this happens in rendering phase of css
+    // (totalWidth - horizontal_gutter) / 2
+    // use #{} to add sass variable
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    // 2 times 1-of-3 columns + one gutter
+    width: calc(
+      (2 * (100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    // 2 times 1-of-4 columns + one gutter
+    width: calc(
+      (2 * (100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    // 3 times 1-of-4 columns + two gutter
+    width: calc(
+      (3 * (100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
+    );
+  }
+}
