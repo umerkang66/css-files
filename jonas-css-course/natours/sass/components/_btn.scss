@@ -1,0 +1,69 @@
+// special state of selector, when it is an anchor element, it function as link
+// "visited" state when user has already clicked the button
+// we want to the link, and visited state of button looks the same, in reality colors are bit different
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    // we should always add this, if we add height, margin or padding
+    display: inline-block;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    position: relative;
+
+    transition: transform 0.2s ease-out;
+  }
+
+  &::after {
+    // these two are necessary
+    content: '';
+    // because btn is also inline block
+    display: inline-block;
+    // pseudo-element is treated like a child of element
+    height: 100%;
+    width: 100%;
+    // this is 100% of the width and height of parent element (btn itself)
+    border-radius: 5rem;
+    transition: all 0.4s ease-out;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    // x-axis, y-axis, blur, color
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      // when button is hovered, add styles to after pseudo element
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    // always related to the initial link state
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--animated {
+    animation: moveFromBottom 0.5s ease-out 0.75s;
+    // this will apply the 0% animation styles before the animation starts
+    animation-fill-mode: backwards;
+  }
+}

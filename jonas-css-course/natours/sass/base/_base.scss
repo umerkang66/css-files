@@ -1,0 +1,19 @@
+// universal selector will apply on every element, every element should have box-size property border-box that is inherited from body
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// root font-size is set in html selector
+html {
+  font-size: 62.5%; // (10/16 x 100) percentage of 10 from 16
+}
+
+body {
+  box-sizing: border-box;
+  // padding is not inherited
+  padding: 2rem;
+}
