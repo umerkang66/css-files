@@ -1,0 +1,103 @@
+// VARIABLES
+$color-primary: #f9ed69; // yellow
+$color-secondary: #f08a5d; // orange
+$color-tertiary: #b83b5e; // pink
+$color-text-dark: #333; // dark-grey
+$color-text-light: #fff; // white
+
+$width-button: 150px;
+
+// MIXINS
+@mixin clearFix {
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($col) {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $col;
+}
+
+// FUNCTIONS
+@function divider($a, $b) {
+  @return $a/$b;
+}
+
+// PLACEHOLDERS
+// In mixin, code is copied, but in placeholder, the selector is copied here
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  border-radius: 50px;
+  text-align: center;
+  width: $width-button;
+  transition: all 0.2s ease-out;
+
+  @include style-link-text($color-text-light);
+}
+
+// NORMAL STYLES
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+nav {
+  margin: divider(60, 2) * 1px;
+  background-color: $color-primary;
+  font-family: sans-serif;
+
+  @include clearFix;
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  & li {
+    display: inline-block;
+    margin-left: 30px;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    a {
+      display: inherit;
+      padding: 5px 10px;
+
+      @include style-link-text($color-text-dark);
+    }
+  }
+}
+
+.button {
+  float: right;
+}
+
+.btn-main {
+  @extend %btn-placeholder;
+  background-color: $color-secondary;
+
+  &:hover {
+    background-color: darken($color-secondary, 15%);
+  }
+}
+
+.btn-hot {
+  @extend %btn-placeholder;
+  background-color: $color-tertiary;
+
+  &:hover {
+    background-color: darken($color-tertiary, 15%);
+  }
+}

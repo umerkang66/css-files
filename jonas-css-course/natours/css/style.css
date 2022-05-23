@@ -5,22 +5,32 @@
     Dark green: #28b485
 */
 
-* {
+/* universal selector will apply on every element, every element should have box-size property border-box that is inherited from body */
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+/* root font-size is set in html selector */
+html {
+  font-size: 62.5%; /* (10/16 x 100) percentage of 10 from 16 */
 }
 
 body {
   /* we are going to use font properties in inheritance, so this is in the body */
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 1.6rem; */
   line-height: 1.7;
   color: #777;
 
   /* padding is not inherited */
-  padding: 20px;
+  padding: 2rem;
+  /* put on body, from where every element will inherit checkout the universal selector */
+  box-sizing: border-box;
 }
 
 .header {
@@ -42,17 +52,17 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -68,15 +78,15 @@ body {
 
   /* this determines if the back-part of the element (when being transformed) is visible or hidden of the user */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 /* by default h1 has higher font-weight */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveFromLeft;
   animation-duration: 0.7s;
@@ -86,11 +96,11 @@ body {
   /* animation-iteration-count: 3; */ /* animation will happen 3 times */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.74rem;
 
   animation: moveInRight 0.7s ease-out;
 }
@@ -102,10 +112,11 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* we should always add this, if we add height, margin or padding */
   display: inline-block;
-  border-radius: 50px;
+  border-radius: 5rem;
+  font-size: 1.6rem;
   position: relative;
 
   transition: transform 0.2s ease-out;
@@ -114,18 +125,13 @@ body {
 .btn:hover {
   transform: translateY(-3px);
   /* x-axis, y-axis, blur, color */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   /* always related to the initial link state */
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-white {
-  background-color: #fff;
-  color: #777;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn::after {
@@ -137,7 +143,7 @@ body {
   height: 100%;
   width: 100%;
   /* this is 100% of the width and height of parent element (btn itself) */
-  border-radius: 50px;
+  border-radius: 5rem;
   transition: all 0.4s ease-out;
 
   position: absolute;
@@ -146,17 +152,22 @@ body {
   z-index: -1;
 }
 
-.btn-white::after {
-  background-color: #fff;
-}
-
 /* when button is hovered, add styles to after pseudo element */
-.btn-white:hover::after {
+.btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
 
-.btn-animated {
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn--animated {
   animation: moveFromBottom 0.5s ease-out 0.75s;
   /* this will apply the 0% animation styles before the animation starts */
   animation-fill-mode: backwards;
@@ -166,11 +177,11 @@ body {
 @keyframes moveFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -182,11 +193,11 @@ body {
 @keyframes moveFromRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -198,7 +209,7 @@ body {
 @keyframes moveFromBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
