@@ -10,7 +10,7 @@
     // we should always add this, if we add height, margin or padding
     display: inline-block;
     border-radius: 5rem;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     position: relative;
 
     transition: transform 0.2s ease-out;
@@ -65,5 +65,33 @@
     animation: moveFromBottom 0.5s ease-out 0.75s;
     // this will apply the 0% animation styles before the animation starts
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 0.5rem;
+    border-radius: 0.1rem;
+    transition: all 0.2s ease-out;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary;
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    border: none;
+  }
+
+  // styles that are on hover, will also apply on active
+  &:active {
+    transform: translateY(-1.5px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 }
