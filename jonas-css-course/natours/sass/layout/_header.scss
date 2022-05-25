@@ -14,6 +14,8 @@
   position: relative;
 
   // provide the 4 coordinates, that will automatically joined by clip-path
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
 
   &__logo-box {
