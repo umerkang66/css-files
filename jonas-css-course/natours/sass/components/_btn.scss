@@ -2,6 +2,9 @@
 // "visited" state when user has already clicked the button
 // we want to the link, and visited state of button looks the same, in reality colors are bit different
 .btn {
+  // for <button>
+  &,
+  // for <a>
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -12,6 +15,10 @@
     border-radius: 5rem;
     font-size: $default-font-size;
     position: relative;
+
+    // change for the <button> element
+    border: none;
+    cursor: pointer;
 
     transition: transform 0.2s ease-out;
   }
@@ -46,7 +53,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     // always related to the initial link state
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
