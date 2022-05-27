@@ -1,0 +1,65 @@
+.story {
+  width: 75%;
+  // center it
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: 0.1);
+  background-color: rgba($color: $color-white, $alpha: 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  // we are not providing font size, because paragraph, and heading already has font sizes
+  transform: skewX(-10deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // the div should be floated, and it should have width, and height
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // first is radius, then from where it should start, that is center of circle
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    // an element only can have multiple transform properties in single transform property
+    transform: translateX(-3rem) skewX(10deg);
+    position: relative;
+  }
+
+  &__image {
+    height: 100%;
+    transform: translateX(-3.5rem) scale(1.2);
+    transition: all 0.2s ease-out;
+    backface-visibility: hidden;
+  }
+
+  &__text {
+    transform: skewX(10deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    z-index: 50;
+    color: $color-white;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    backface-visibility: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-3.5rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
