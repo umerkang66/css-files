@@ -27,6 +27,11 @@ body {
 
     // animation-delay: 3s; // this will delay the animation
     // animation-iteration-count: 3; // animation will happen 3 times
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
   }
 
   &--sub {
@@ -36,6 +41,10 @@ body {
     letter-spacing: 1.74rem;
 
     animation: moveInRight 0.7s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -52,6 +61,7 @@ body {
   );
   -webkit-background-clip: text;
   -moz-background-clip: text;
+  background-clip: text;
   color: transparent;
 
   letter-spacing: 2px;
@@ -60,6 +70,14 @@ body {
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
   }
 }
 

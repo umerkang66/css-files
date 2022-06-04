@@ -6,6 +6,14 @@
   // select everything expects the last child
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
   }
 
   @include clearfix;
@@ -16,6 +24,17 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        // as columns is not row, they should have margin bottom
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      // all the columns should becomes row
+      width: 100% !important;
     }
   }
 

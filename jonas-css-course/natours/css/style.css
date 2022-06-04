@@ -1,3 +1,23 @@
+/*
+  RANGES            DEVICE              MEDIA Q.
+  0 - 600px:        Phone               max-width
+  600 - 900px:      Tablet portrait     max-width
+  900 - 1200px:     Tablet landscape    max-width
+  1200 - 1800px:    Normal Styles       max-width
+  1800 + :          Big desktops        min-width
+
+  
+  $breakpoints arguments
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+
+  // from the big media queries to the small ones, because for the small queries, larger ones also applies, if we specify them in later in code, that will be applies
+  // in mobile-first, first add the lower widths, then add the larger widths
+
+  ORDER: Base + typography > general layout + grid > page layout > components
+*/
 *,
 *::after,
 *::before {
@@ -7,10 +27,22 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
   padding: 2rem; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 @keyframes moveFromLeft {
   0% {
@@ -59,12 +91,19 @@ body {
     animation-name: moveFromLeft;
     animation-duration: 0.7s;
     animation-timing-function: ease-out; }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.74rem;
     animation: moveInRight 0.7s ease-out; }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem; } }
 
 .heading-secondary {
   display: inline-block;
@@ -74,12 +113,19 @@ body {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
   -moz-background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: 2px;
   transition: transform 0.2s ease-out; }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -641,6 +687,12 @@ body {
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      max-width: 50rem; } }
   .row::after {
     content: '';
     display: table;
@@ -649,6 +701,13 @@ body {
     float: left; }
     .row [class^='col-']:not(:last-child) {
       margin-right: 6rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row [class^='col-']:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .row [class^='col-'] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
