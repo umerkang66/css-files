@@ -18,6 +18,7 @@
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
 
     // when transform property transform, after transforming it also has a back property, so this will hide it
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: transform 0.8s ease-out;
 
@@ -191,7 +192,9 @@
   }
 
   // WRITE THE BIG MEDIA QUERY, BECAUSE THIS IS THE WHOLE REWRITE OF CARD
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    // also apply if device doesn't have hover functionality
     height: auto;
     border-radius: 5px;
     background-color: $color-white;

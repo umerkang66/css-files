@@ -41,6 +41,7 @@
   // "rems" in media q. are failed in some browsers, so "ems" are the best options
   // default browser-font is 16px, so divide the width by 16
   @if $breakpoint == phone {
+    // they only apply to screens, if someone try to print out the page, this doesn't apply
     @media only screen and (max-width: 37.5em) {
       // 600/16
       // allows to pass the block of code into the mixin

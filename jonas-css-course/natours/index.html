@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/icon-font.css" />
+    <!-- <link rel="stylesheet" href="css/icon-font.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
@@ -105,18 +105,38 @@
 
           <div class="col-1-of-2">
             <div class="composition">
+              <!-- RESOLUTION SWITCHING: Allow the browser to choose the best image, also write the width of images in pixels "w" -->
+
+              <!-- "sizes" inform the browser, what will be the width of image at 900px breakpoint, get % of width with respect to breakpoint -->
+
+              <!-- also add src for older browsers -->
+
+              <!-- this will take care for resolution switching and density switching -->
               <img
-                src="img/nat-1-large.jpg"
+                alt="Photo 1"
+                srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
                 alt="Photo 1"
                 class="composition__photo composition__photo--p1"
-              /><img
-                src="img/nat-2-large.jpg"
+                src="img/nat-1-large.jpg"
+              />
+
+              <img
+                alt="Photo 2"
+                srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
                 alt="Photo 2"
                 class="composition__photo composition__photo--p2"
-              /><img
-                src="img/nat-3-large.jpg"
+                src="img/nat-2-large.jpg"
+              />
+
+              <img
+                alt="Photo 3"
+                srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
                 alt="Photo 3"
                 class="composition__photo composition__photo--p3"
+                src="img/nat-3-large.jpg"
               />
             </div>
           </div>
@@ -438,11 +458,27 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img
-          src="img/logo-green-2x.png"
-          alt="Footer logo"
-          class="footer__logo"
-        />
+        <!-- ART DIRECTION: use one image on one screen width, and another image on another screen width -->
+        <picture class="footer__logo">
+          <!-- in case image is lower than 37.5em (600px) is in source "srcset" -->
+          <!-- also using density switching here -->
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-2x.png 2x
+            "
+            media="(max-width: 37.5em)"
+            src="img/logo-green-small-2x.png"
+          />
+
+          <!-- DENSITY SWITCHING: larger version of same image for large resolution screens, and smaller version for low resolution -->
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Footer logo"
+            class="footer__logo"
+            src="img/logo-green-2x.png"
+          />
+        </picture>
       </div>
 
       <div class="row">

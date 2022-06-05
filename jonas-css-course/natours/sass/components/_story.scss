@@ -24,17 +24,23 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    // the div should be floated, and it should have width, and height
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-
-    // first is radius, then from where it should start, that is center of circle
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
 
     // an element only can have multiple transform properties in single transform property
     transform: translateX(-3rem) skewX(10deg);
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      // first is radius, then from where it should start, that is center of circle
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+
+      // the div should be floated, and it should have width, and height
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
