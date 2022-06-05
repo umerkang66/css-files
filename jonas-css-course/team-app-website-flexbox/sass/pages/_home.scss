@@ -1,0 +1,33 @@
+.section {
+  padding: 6rem 0;
+
+  &--about {
+    overflow: hidden;
+  }
+
+  &--features-1 {
+    background-color: $color-primary;
+    overflow: hidden;
+
+    &__upperZeroPadding {
+      padding: 0 0 6rem 0;
+    }
+  }
+
+  &--features-2 {
+    overflow: hidden;
+    background-color: $color-primary;
+
+    &__lowerZeroPadding {
+      padding: 6rem 0 0 0;
+
+      @include respond(medium) {
+        padding: 0 0 6rem 0;
+      }
+    }
+  }
+
+  &--footer {
+    background-color: $color-secondary;
+  }
+}

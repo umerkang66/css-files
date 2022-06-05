@@ -1,0 +1,92 @@
+.heading-primary {
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 300;
+
+  padding-top: 12rem; // Centering the header content
+
+  @include respond(medium) {
+    font-size: 4.5rem;
+  }
+
+  @include respond(very-small) {
+    padding-top: 10rem;
+  }
+
+  @include respond(very-very-small) {
+    font-size: 4rem;
+  }
+
+  &--white {
+    color: $color-grey-light-1;
+  }
+}
+
+.heading-secondary {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+
+  @include respond(medium) {
+    font-size: 4.5rem;
+  }
+
+  @include respond(very-small) {
+    font-size: 4rem;
+  }
+
+  @include respond(very-very-small) {
+    font-size: 3.5rem;
+  }
+
+  &--blue {
+    color: $color-secondary;
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  &--white {
+    color: rgba($color-white, 0.9);
+  }
+
+  &--footer {
+    margin-bottom: 2.5rem;
+
+    @include respond(very-small) {
+      margin-bottom: 1.5rem;
+    }
+
+    &__less-margin-bottom {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.paragraph {
+  font-size: 1.8rem;
+
+  @include respond(medium) {
+    font-size: $default-font-size;
+  }
+
+  &--white {
+    color: rgba($color-grey-light-1, 0.8);
+  }
+
+  &--blue {
+    color: rgba($color-secondary-light, 0.8);
+  }
+
+  &--footer-form {
+    font-size: 1.4rem;
+  }
+
+  &--footer-copyright {
+    font-size: 1.3rem;
+    color: rgba($color-grey-light-1, 0.6);
+    margin-top: 10rem;
+  }
+}

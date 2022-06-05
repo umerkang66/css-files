@@ -1,0 +1,46 @@
+.features {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+
+  display: grid;
+  //   grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-gap: 4rem;
+  align-items: stretch;
+
+  padding: 13rem 0;
+
+  @include respond(large) {
+    padding: 5rem 0;
+  }
+
+  @include respond(very-very-small) {
+    grid-gap: 3rem;
+  }
+
+  @include respond(insanely-small) {
+    grid-gap: 2rem;
+  }
+
+  &__card {
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+    background-color: rgba($color-white, 0.8);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      transform: scale(1.02) translateY(-1rem);
+    }
+
+    &--icon {
+      display: block;
+      fill: none;
+      stroke: $color-primary-light;
+      width: 7rem;
+      height: 7rem;
+      margin: 0 auto;
+    }
+  }
+}

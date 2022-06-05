@@ -1,0 +1,121 @@
+.testimonials {
+  &__box {
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba($color-white, 0.5);
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 1.5rem rgba($color-black, 0.2);
+    transform: skewX(-10deg);
+    padding: 4rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+
+    @include respond(large) {
+      width: 90%;
+    }
+
+    @include respond(small) {
+      width: 100%;
+    }
+
+    @include respond(very-small) {
+      transform: skewX(0);
+      align-items: flex-start;
+      padding: 3rem;
+    }
+
+    @include respond(very-very-small) {
+      padding: 2.5rem;
+    }
+
+    @include respond(insanely-small) {
+      padding: 2rem;
+    }
+
+    & > * {
+    }
+
+    min-height: 27.5rem;
+
+    &--picture-box {
+      width: 15rem;
+      height: 15rem;
+      border-radius: 100%;
+      transform: skewX(10deg);
+      margin-right: 2rem;
+      overflow: hidden;
+
+      @include respond(very-small) {
+        transform: skewX(0);
+        width: 7rem;
+        height: 7rem;
+      }
+
+      @include respond(insanely-small) {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+      }
+    }
+
+    &--picture {
+      height: 100%;
+      margin-left: -3.5rem;
+      transform: scale(1.5);
+      transition: all 0.2s;
+      backface-visibility: hidden;
+
+      @include respond(insanely-small) {
+        margin-left: -1rem;
+      }
+    }
+
+    &--caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 20%);
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      color: $color-white;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.5s;
+      backface-visibility: hidden;
+
+      @include respond(very-small) {
+        display: none;
+      }
+    }
+
+    &--text {
+      transform: skewX(10deg);
+      flex-basis: 75%;
+
+      @include respond(very-small) {
+        transform: skewX(0);
+        flex-basis: 80%;
+      }
+
+      @include respond(very-very-small) {
+        flex-basis: 75%;
+      }
+
+      @include respond(insanely-small) {
+        flex: 1;
+      }
+    }
+
+    &:hover &--picture {
+      transform: scale(1);
+      filter: blur(0.3rem) brightness(80%);
+    }
+
+    &:hover &--caption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

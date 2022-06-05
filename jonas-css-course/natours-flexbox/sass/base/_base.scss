@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 10px
+
+  @include respond(very-large) {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 2rem;
+  background-color: $color-grey-light-1;
+
+  @include respond(very-very-small) {
+    padding-top: 1.5rem;
+  }
+
+  @include respond(insanely-small) {
+    padding: 1rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+
+    &-track {
+      background-color: $color-grey-light-2;
+    }
+
+    &-thumb {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba($color-primary-dark, 1),
+        rgba($color-primary-light, 1)
+      );
+      background-size: cover;
+      border-radius: 10rem;
+    }
+  }
+}

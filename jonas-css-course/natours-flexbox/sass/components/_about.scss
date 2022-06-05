@@ -1,0 +1,84 @@
+.about {
+  padding: 15rem 0;
+
+  @include respond(medium) {
+    padding: 10rem 0;
+  }
+
+  @include respond(very-small) {
+    padding: 13rem 0;
+  }
+
+  @include respond(insanely-small) {
+    padding: 15rem 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(very-small) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__text {
+    width: 50%;
+    margin-right: 4rem;
+
+    @include respond(very-small) {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+
+  &__pictures {
+    width: 50%;
+    position: relative;
+
+    @include respond(very-small) {
+      width: 100%;
+      margin-bottom: 2rem;
+
+      display: flex;
+    }
+  }
+
+  &__photo {
+    margin-top: 4rem;
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    position: absolute;
+    transition: all 0.1s ease-out;
+
+    @include respond(very-small) {
+      position: static;
+      margin: 0;
+      width: 33.33%;
+    }
+
+    &--1 {
+      top: -2rem;
+      left: 0;
+      z-index: 1;
+    }
+
+    &--2 {
+      top: 2rem;
+      right: 0;
+      z-index: 2;
+    }
+
+    &--3 {
+      top: 8rem;
+      left: 10rem;
+      z-index: 3;
+    }
+
+    &:hover {
+      transform: scale(1.1) translateY(-0.5rem);
+      box-shadow: 0 1.5rem 5rem rgba($color-black, 0.5);
+      z-index: 5;
+    }
+  }
+}

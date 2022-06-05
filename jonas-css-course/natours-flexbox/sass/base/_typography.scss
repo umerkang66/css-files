@@ -1,0 +1,244 @@
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: $color-grey-dark-3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.heading-primary {
+  margin-bottom: 5rem;
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  @include respond(small) {
+    margin-bottom: 3rem;
+  }
+
+  &--main {
+    font-size: 7rem;
+    font-weight: 300;
+    letter-spacing: 1.85rem;
+    display: block;
+
+    animation: moveFromLeft 1s ease-out;
+
+    @include respond(small) {
+      font-size: 6rem;
+    }
+
+    @include respond(very-small) {
+      font-size: 5rem;
+    }
+
+    @include respond(very-very-small) {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    @include respond(insanely-small) {
+      font-size: 2.5rem;
+      letter-spacing: 1.4rem;
+    }
+  }
+
+  &--sub {
+    font-size: 2.5rem;
+    display: block;
+    letter-spacing: 1.1rem;
+    font-weight: 400;
+
+    animation: moveFromRight 1s ease-out;
+
+    @include respond(small) {
+      font-size: 2.3rem;
+    }
+
+    @include respond(very-small) {
+      font-size: 2.2rem;
+    }
+
+    @include respond(very-very-small) {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    @include respond(insanely-small) {
+      font-size: 1.5rem;
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  display: inline-block;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+
+  @include respond(medium) {
+    font-size: 4.2rem;
+  }
+
+  @include respond(very-small) {
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  @include respond(insanely-small) {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  &--green {
+    background: -webkit-linear-gradient(
+      0deg,
+      $color-primary-dark,
+      $color-primary-light
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    text-shadow: 0 2rem 4rem rgba($color-primary, 0.4);
+  }
+}
+
+.heading-tertiary {
+  font-size: 2.5rem;
+  font-weight: 400;
+
+  @include respond(medium) {
+    font-size: 2rem;
+  }
+
+  @include respond(very-very-small) {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  &--dark {
+    color: $color-grey-dark-3;
+
+    &-features-card {
+      font-size: 2rem;
+      color: rgba($color-grey-dark-3, 0.8);
+    }
+  }
+
+  &--white {
+    color: $color-white;
+
+    &__back-card {
+      font-size: 6rem;
+      font-weight: 300;
+    }
+  }
+
+  &--tours-card {
+    width: auto;
+    text-align: right;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+
+    @include respond(very-very-small) {
+      font-size: 2.5rem;
+    }
+
+    @include respond(insanely-small) {
+      font-size: 2rem;
+    }
+
+    &--1 {
+      border-radius: 0.2rem;
+      padding: 1rem 1rem;
+      background-image: linear-gradient(
+        to bottom right,
+        rgba($color-secondary-dark, 0.9),
+        rgba($color-secondary-light, 0.9)
+      );
+      background-size: cover;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    &--2 {
+      border-radius: 0.2rem;
+      padding: 1rem 1rem;
+      background-image: linear-gradient(
+        to bottom right,
+        rgba($color-primary-dark, 0.9),
+        rgba($color-primary-light, 0.9)
+      );
+      background-size: cover;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    &--3 {
+      border-radius: 0.2rem;
+      padding: 1rem 1rem;
+      background-image: linear-gradient(
+        to bottom right,
+        rgba($color-tertiary-dark, 0.9),
+        rgba($color-tertiary-light, 0.9)
+      );
+      background-size: cover;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+  }
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  @include respond(medium) {
+    font-size: 1.6rem;
+  }
+
+  @include respond(very-very-small) {
+    font-size: 1.6rem;
+  }
+
+  &--dark {
+    color: $color-grey-dark;
+  }
+
+  &--white {
+    color: $color-grey-light-1;
+
+    &__responsive {
+      @include respond(small) {
+        padding-top: 3rem;
+      }
+    }
+
+    &__back-card {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    &__footer {
+      font-size: 1.4rem;
+    }
+  }
+}

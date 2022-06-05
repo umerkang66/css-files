@@ -1,0 +1,63 @@
+.about {
+  display: flex;
+  align-items: center;
+
+  @include respond(small) {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  &__text-content {
+    width: 40%;
+
+    @include respond(medium) {
+      width: 45%;
+    }
+
+    @include respond(small) {
+      width: 100%;
+      text-align: center;
+    }
+
+    @include respond(very-small) {
+      text-align: left;
+    }
+  }
+
+  &__picture-box {
+    width: 55%;
+    height: 65rem;
+    transition: all 0.4s;
+
+    @include respond(medium) {
+      height: 50rem;
+    }
+
+    @include respond(small) {
+      width: 100%;
+      margin-left: -2.5rem;
+      height: 45rem;
+      margin-bottom: 2rem;
+    }
+
+    @include respond(very-small) {
+      height: 40rem;
+    }
+
+    @include respond(very-small) {
+      height: 40rem;
+    }
+
+    @include respond(very-very-small) {
+      height: 30rem;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__picture {
+    height: 100%;
+  }
+}

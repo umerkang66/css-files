@@ -1,0 +1,102 @@
+.btn {
+  border: none;
+  transition: all 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+
+  &__navigation {
+    font-weight: 400;
+
+    &--white {
+      background-color: rgba($color-white, 0.2);
+      color: $color-grey-light-1;
+      font-size: 1.3rem;
+      border-radius: 3px;
+      padding: 1rem;
+
+      &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+
+    &--yellow {
+      font-size: 2rem;
+      background-color: $color-primary;
+      color: $color-grey-light-1;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+
+      display: none;
+
+      @include respond(very-small) {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  &__primary {
+    height: 5.5rem;
+    padding: 0 2rem;
+    border-radius: 3px;
+    color: $color-white;
+
+    &--yellow {
+      background-color: $color-primary;
+
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
+
+    @include respond(very-small) {
+      width: 100%;
+    }
+  }
+
+  &__secondary {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.5rem 2.5rem;
+    border-radius: 100px;
+
+    &--yellow {
+      color: $color-grey-light-1;
+      background-color: $color-primary;
+
+      &-arrow {
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+
+      &:hover &-arrow {
+        transform: translateX(0.6rem);
+      }
+    }
+
+    &--white {
+      color: $color-primary;
+      background-color: $color-grey-light-1;
+
+      &-arrow {
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        background-color: $color-grey-light-2;
+        color: $color-primary-dark;
+      }
+
+      &:hover &-arrow {
+        transform: translateX(0.6rem);
+      }
+    }
+  }
+}

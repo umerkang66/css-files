@@ -1,0 +1,68 @@
+.testimonials {
+  &__heading-box {
+    text-align: center;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    grid-gap: 3rem;
+
+    @include respond(very-very-small) {
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+  }
+
+  &__card {
+    // height: 35rem; // for testing purposes
+    // width: 30%; // for testing purposes
+
+    padding: 5rem 4rem 4rem 4rem;
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 1.5rem 4rem rgba($color-secondary, 0.1);
+    transition: all 0.4s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include respond(very-very-small) {
+      padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 1.8rem 4.5rem rgba($color-secondary, 0.1);
+    }
+
+    &--avatar {
+      display: flex;
+      align-items: center;
+
+      &__img {
+        width: 6rem;
+        margin-right: 1rem;
+
+        @include respond(very-very-small) {
+          width: 5rem;
+        }
+      }
+
+      &__identity {
+        &--name {
+          font-family: inherit;
+          font-size: 1.6rem;
+          color: $color-secondary;
+          margin-bottom: 0.3rem;
+        }
+
+        &--works {
+          font-size: 1.2rem;
+          font-family: inherit;
+          color: rgba($color-secondary, 0.9);
+        }
+      }
+    }
+  }
+}

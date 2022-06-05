@@ -1,0 +1,76 @@
+.section {
+  padding: 6rem 0;
+
+  @include respond(very-small) {
+    padding: 4rem 0;
+  }
+
+  &--about {
+    margin-top: -15rem;
+    min-height: 88.6rem;
+  }
+
+  &--features {
+    min-height: auto;
+    margin-top: -10rem;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba($color-primary-dark, 0.6),
+        rgba($color-primary-light, 0.6)
+      ),
+      url(../img/nat-4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: skewY(-6deg);
+
+    & > * {
+      transform: skewY(6deg);
+    }
+  }
+
+  &--tours {
+  }
+
+  &--testimonials {
+    min-height: 97.4rem;
+    position: relative;
+
+    @include respond(very-very-small) {
+      min-height: 71rem;
+    }
+  }
+
+  &--form {
+    padding: 12rem 0;
+
+    @include respond(small) {
+      padding: 6rem 0;
+    }
+
+    @include respond(very-very-small) {
+      padding: 4rem 0;
+    }
+
+    @include respond(insanely-small) {
+      padding: 3rem 0;
+    }
+
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($color-primary-dark, 1),
+      rgba($color-primary-light, 1)
+    );
+  }
+
+  &--footer {
+    // min-height: 60rem; // for testing purposes
+
+    background-color: $color-grey-dark-3;
+    padding: 10rem 0;
+
+    @include respond(very-small) {
+      padding: 5rem 0;
+    }
+  }
+}

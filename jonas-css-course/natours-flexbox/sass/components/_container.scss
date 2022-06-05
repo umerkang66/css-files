@@ -1,0 +1,17 @@
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 6rem;
+
+  @include respond(medium) {
+    padding: 0 4rem;
+  }
+
+  @include respond(very-very-small) {
+    padding: 0 3rem;
+  }
+
+  @include respond(insanely-small) {
+    padding: 0 2rem;
+  }
+}
