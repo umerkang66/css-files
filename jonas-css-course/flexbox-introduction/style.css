@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+}
+
+.container {
+    background-color: rgb(204, 203, 203);
+    padding: 10px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    background-color: rgb(64, 56, 177);
+    padding: 40px;
+
+    color: white;
+    border-radius: 3px;
+}
+
+.item:not(:last-child) {
+    margin-right: 8px;
+}
